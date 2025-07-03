@@ -1,0 +1,110 @@
+---
+title: 'Building a Personal Blog with Markdown and Next.js'
+date: '2025-05-07'
+description: 'Create a fully functional developer blog using markdown files and dynamic routing in Next.js.'
+---
+
+# **Creating a Developer Blog with Markdown and Next.js**
+---
+
+&nbsp; 
+
+A blog is a great way to showcase your knowledge and experiences. With Next.js, you can build a fast and scalable static blog using markdown files and dynamic routing.
+
+&nbsp; 
+
+### **1. Project Setup** 
+&nbsp; 
+
+First, initialize a new Next.js project:
+
+```bash
+npx create-next-app my-blog
+cd my-blog
+```
+
+Install `gray-matter` and `remark` packages to parse markdown:
+
+```bash
+npm install gray-matter remark remark-html
+```
+
+&nbsp; 
+
+### **2. Creating Markdown Posts**
+&nbsp; 
+
+Inside the `posts/` folder, create markdown files like:
+
+```md
+---
+title: "My First Blog Post"
+date: "2025-05-01"
+---
+
+This is my first post written in Markdown!
+```
+
+&nbsp; 
+
+### **3. Reading Markdown with `gray-matter`**
+
+Use `fs` and `gray-matter` in `lib/posts.js`:
+
+```js
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+const postsDirectory = path.join(process.cwd(), 'posts');
+
+export function getSortedPostsData() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames.map(fileName => {
+    const id = fileName.replace(/\.md$/, '');
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
+    return {
+      id,
+      ...matterResult.data,
+    };
+  });
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+```
+
+&nbsp; 
+
+### **4. Dynamic Routing**
+&nbsp; 
+
+Use `[id].js` inside the `pages/posts/` directory to generate a page for each blog post:
+
+```js
+import { getAllPostIds, getPostData } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
+}
+```
+
+&nbsp; 
+
+### **Conclusion**
+&nbsp; 
+
+This setup gives you a fast, SEO-friendly blog with easy content management through markdown files. You can later extend it with features like comments, tags, and categories.
