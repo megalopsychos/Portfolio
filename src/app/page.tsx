@@ -3,12 +3,14 @@
 import { Github, Twitter, NotebookText, Heart, Coffee } from "lucide-react"
 import Link from 'next/link'
 import { useState } from "react"
-import { SiSolana } from "react-icons/si"
 import Modal from "@/components/Modal"
 import Image from "next/image"
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+
 
 
   return (
