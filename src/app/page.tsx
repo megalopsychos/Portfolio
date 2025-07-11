@@ -12,13 +12,6 @@ export default function Home() {
   const [copied, setCopied] = useState(false)
   const solanaAddress = "CVzTKtNwLouYs7ua2zMRshSS5LEKYUTE1mcwKqGXJcvP"
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(solanaAddress).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    })
-  }
-
   return (
     <>
       <h1>Anant Mishra</h1>
@@ -75,7 +68,7 @@ export default function Home() {
         <div className="text-center">
           <h3 className="text-lg font-medium mb-4">Support Me</h3>
           <p className="text-sm text-gray-600 mb-4">
-            If you like my work, consider supporting me. It helps me to keep creating and maintaining open-source projects.
+            If you like my work, consider supporting me.
           </p>
           <div className="flex justify-center">
             <Image
