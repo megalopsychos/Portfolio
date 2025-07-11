@@ -66,7 +66,7 @@ export default function Home() {
         </button>
       </div>
 
-      <h2 className="mt-12 mb-6">Featured Posts</h2>
+      <h2 className="mt-12 mb-6"></h2>
       <div className="space-y-4">
         <article className="space-y-2 flex flex-row gap-4">
           <h3 className="text-md font-normal hover:text-gray-600">
