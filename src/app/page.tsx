@@ -51,13 +51,6 @@ export default function Home() {
           Twitter
         </a>
         <button
-          onClick={handleCopy}
-          className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2"
-        >
-          <SiSolana size={16}/>
-          {copied ? "Copied!" : "Solana"}
-        </button>
-        <button
           onClick={() => setIsModalOpen(true)}
           className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2"
         >

@@ -4,8 +4,8 @@
 @layer base {
   html {
     font-family: 'IBM Plex Mono', monospace;
-    background-color: #ffffff;
-    color: #000000;
+    background-color:#e1e1e18d;
+    color: #0f0909;
   }
 
 }

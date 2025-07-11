@@ -14,7 +14,7 @@ export default function Comments() {
         theme="light"
         lang="en"
         loading="lazy"
-        repo="Yuvraj-cyborg/meweb"
+        repo="megalopsychos/portfolio"
         repoId="R_kgDOOkYzOQ"
         category="General"
         categoryId="DIC_kwDOOkYzOc4Cp1hy"
