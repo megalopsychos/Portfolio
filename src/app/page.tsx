@@ -8,7 +8,6 @@ import Image from "next/image"
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [copied, setCopied] = useState(false)
 
 
 
